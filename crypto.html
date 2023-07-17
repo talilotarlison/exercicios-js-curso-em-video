@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>crypto-js</title>
+</head>
+<body>
+  
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script>
+
+  //https://stackoverflow.com/questions/51005488/how-to-use-cryptojs-in-javascript
+// INIT
+var myString   = "ttarlison@gmail.com";
+var myPassword = "myPassword";
+
+// PROCESS
+var encrypted = CryptoJS.AES.encrypt(myString, myPassword);
+var decrypted = CryptoJS.AES.decrypt(encrypted, myPassword);
+ console.log(encrypted.toString());
+ console.log(decrypted.toString());
+ console.log(decrypted.toString(CryptoJS.enc.Utf8));
+
+
+
+</script>
+
+
+
+</html>
