@@ -1,0 +1,53 @@
+<html>
+ <script src="https://rawgithub.com/tomyun/crypto-js/xeit-3.1.2/build/rollups/rc2.js"></script>
+
+<script> 
+
+//https://pt.stackoverflow.com/questions/13738/adicionar-caractere-no-meio-de-uma-string
+
+function criptografia(senha ) {
+
+      //criptografia senha
+      var VALUE = senha;
+      var KEY = "M^$UCLThSEZGnet";
+      var KEYSIZE = 64;
+
+      var e = CryptoJS.RC2.encrypt(VALUE, KEY, {effectiveKeyBits: KEYSIZE});
+      var d = CryptoJS.RC2.decrypt(e, KEY, {effectiveKeyBits: KEYSIZE});
+	   
+	  var f = d.words[0].toString() + d.words[1].toString();
+	  return f;
+	
+      /*
+          preciso retornar o resultado 
+      */
+    }
+    //console.log(criptografia("talilo"));
+   var senha = criptografia("talilo")
+   console.log(senha.replace(/(\d{4})(\d{4})(\d{5})(\d{4})/, "$1dfs$2asd$3dgjh$4llgh"))
+
+   
+//função codificar
+  function Inserir( valor){
+
+    return valor.replace(/(\d{4})(\d{4})(\d{5})(\d{4})/, "$1dfs$2asd$3dgjh$4llgh");
+
+  }
+ console.log(Inserir(senha));
+ 
+ /*
+
+//https://www.devmedia.com.br/javascript-replace-substituindo-valores-em-uma-string/39176
+
+//Como formatar cpf
+
+var cpf = "12345678901";
+var resultado = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+
+console.log(resultado);
+ 
+ 
+ */
+  </script>
+
+</html>
