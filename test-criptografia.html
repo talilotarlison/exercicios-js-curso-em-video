@@ -1,0 +1,39 @@
+<html>
+ <script src="https://rawgithub.com/tomyun/crypto-js/xeit-3.1.2/build/rollups/rc2.js"></script>
+
+<script> 
+
+//https://pt.stackoverflow.com/questions/13738/adicionar-caractere-no-meio-de-uma-string
+
+function criptografia(senha ) {
+
+      //criptografia senha
+      var VALUE = senha;
+      var KEY = "M^$UCLThSEZGnet";
+      var KEYSIZE = 64;
+
+      var e = CryptoJS.RC2.encrypt(VALUE, KEY, {effectiveKeyBits: KEYSIZE});
+      var d = CryptoJS.RC2.decrypt(e, KEY, {effectiveKeyBits: KEYSIZE});
+	   //return e.ciphertext.words
+	   return d.words[0]
+;
+	
+      /*
+          preciso retornar o resultado 
+      */
+    }
+    console.log(criptografia);
+
+    var senha = criptografia("talilo").toString();
+ // função codificar
+    function Inserir(i, valor){
+
+      var i = Math.floor(string.length / 2);
+     return string.substr(0, i).concat(valor).concat(string.substr(i));
+}
+
+  
+ console.log(Inserir("senha", "dsfs"));
+  </script>
+
+</html>
