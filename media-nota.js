@@ -1,5 +1,5 @@
 
-https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes
+//https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes
 
 class Notas {
   constructor(nota1, nota2, nota3) {
@@ -22,8 +22,16 @@ const notaAluno1 = new Notas(5,6,7);
 console.log(notaAluno1.soma()); // teste soma
 console.log(notaAluno1.media()); // teste media
 
+console.log("Calculo nota com sucesso!");
+
+if ( notaAluno1.media() >= 7){
+  
+  console.log("Aluno aprovado")
+}else{
+  
+  console.log("Aluno reprovado")
+}
 
 
 
-
-console.log("Calculo com sucesso!");
+console.log("Operação realizada com sucesso!");
