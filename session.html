@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Meu primeiro script</title>
+    <meta charset="utf-8">
+ 
+    <!-- estilos -->
+    <link rel="stylesheet" href="estilo.css">
+ 
+    <!-- scripts -->
+    <script src="script.js"></script>
+</head>
+ 
+<body>
+    <!-- conteúdo da página -->
+	<div id="log"></div>
+	<button onclick="login()">login</button>
+	<button onclick="sair()">sair</button>
+</body>
+
+<script>
+
+// dados de login
+var email = "email@email.com";
+var senha = 123456
+
+function login(){
+
+   // https://www.w3schools.com/jsref/prop_win_sessionstorage.asp
+	// aplicando session storage para login do usuario
+	
+	if(email === "email@email.com" && senha === 123456){
+	
+	// criando sessao
+	var dados = {
+	nome: "Talilo",
+	age : 29
+	}
+	
+	var dadosLocal = JSON.stringify(dados);
+	
+	sessionStorage.setItem("login", dadosLocal);
+	mostraTela();
+	}
+}
+
+
+var show = document.getElementById('log')
+// pegando dados de sessao
+
+let user = sessionStorage.getItem("login");
+
+let dadosGet = JSON.parse(user)
+
+function mostraTela(){
+	show.innerText = `Usuario logado como ${dadosGet.nome} com ${dadosGet.age} anos!`;
+}
+
+
+
+function sair(){
+	//removendo sessao do navegador
+	sessionStorage.removeItem("login");
+	show.innerText = "Usuario nao esta logado"
+
+}
+
+</script>
+
+ 
+</html>
+
