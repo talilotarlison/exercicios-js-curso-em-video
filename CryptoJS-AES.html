@@ -1,0 +1,47 @@
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+
+<script>
+   // link de acesso para mais informações:
+   // https://stackoverflow.com/questions/51005488/how-to-use-cryptojs-in-javascript
+
+   function criptografia() {
+      // INIT
+      var Message = "Talilo"; // mensagem que que criptografa ou descriptografar
+      var SecretPassphrase = "Key"; // chave secreta
+
+      // Uso minha mensagem que quero criptografa e passa como parametro usando a mensagem e a chave para criptografia da informação.
+
+      // PROCESS 01 CRIPTGRAFIA
+      var encrypted = CryptoJS.AES.encrypt(Message, SecretPassphrase);
+      // mensagem criptografada
+
+      console.log(encrypted.toString()); // mostra no console
+      //U2FsdGVkX1/xVwZuzRapt2pyZtb17DjWbNw5UuA6iRc=
+      //U2FsdGVkX1+axGB3EcVbY3XnpC28cfGTZgDLjeno8PQ=
+      //U2FsdGVkX1/2Mj2Q6UiZNAfRojsOlSOVAxggQV6q0co=
+
+      // sempre vai gerar varios hash diferentes para a mesma senha o que garante mais segurança das informações armazendas
+
+      // PROCESS 02 DESCRIPTGRAFIA
+      // Uso minha mensagem que quero descriptografa e passa como parametro usando a mensagem e a mesma chave usafa para criptografia da informação.
+      var decrypted = CryptoJS.AES.decrypt(encrypted, SecretPassphrase);
+
+      console.log(decrypted.toString());
+      // mensagem descriptografada
+      //54616c696c6f
+      //54616c696c6f
+      console.log(decrypted.toString(CryptoJS.enc.Utf8));
+      // mensagem descriptografada real em Utf8
+      // Talilo 
+
+   }
+
+   criptografia()
+
+
+
+</script>
+
+
+</html>
